@@ -19,4 +19,11 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def on_ready():
     print(f"Helo, {bot.user.name}")
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("Command not found. Try using !h for help")
+    else:
+        raise error
+
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)

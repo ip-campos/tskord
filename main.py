@@ -44,10 +44,13 @@ async def add(ctx, *, task:str):
     await ctx.send(f"Added **{task}** to {ctx.author.mention} list")
 
 @bot.command()
-async def undone(ctx):
+async def unfinished(ctx):
     user_id = ctx.author.id
     guild_id = ctx.guild.id
-    await ctx.send(utils.get_undone_tasks(user_id=user_id, guild_id=guild_id))
+    try:
+        await ctx.send(utils.get_unfinished_tasks(user_id=user_id, guild_id=guild_id))
+    except:
+        await ctx.send("You have no tasks!")
 
 @bot.command()
 async def finish(ctx, *, task_id):
@@ -57,17 +60,22 @@ async def finish(ctx, *, task_id):
     await ctx.send(f"Finished task!")
 
 @bot.command()
-async def done(ctx):
+async def finished(ctx):
     user_id = ctx.author.id
     guild_id = ctx.guild.id
-    await ctx.send(utils.get_done_tasks(user_id=user_id, guild_id=guild_id))
+    try:
+        await ctx.send(utils.get_finished_tasks(user_id=user_id, guild_id=guild_id))
+    except:
+        await ctx.send("You have no finished tasks")
 
 @bot.command()
 async def list(ctx):
     user_id = ctx.author.id
     guild_id = ctx.guild.id
-    await ctx.send(utils.get_all_tasks(user_id=user_id, guild_id=guild_id))
-
+    try:
+        await ctx.send(utils.get_all_tasks(user_id=user_id, guild_id=guild_id))
+    except:
+        await ctx.send("First you need to add a task")
 @bot.command()
 async def about(ctx):
     await ctx.send(utils.about)

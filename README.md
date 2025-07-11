@@ -9,8 +9,8 @@ Tskord allows you and your server members to add, view, and mark tasks as comple
 ## Features
 
   * **Add Tasks:** Add new tasks to your list.
-  * **List Tasks:** View all tasks, only the undone ones, or only the completed ones.
-  * **Mark as Done:** Mark tasks as finished.
+  * **List Tasks:** View all tasks, only the unfinish ones, or only the completed ones.
+  * **Mark as finish:** Mark tasks as finished.
   * **Data Persistence:** Tasks are saved in a `tasks.db` database file.
 
 ## Tech Stack
@@ -69,8 +69,8 @@ Here are the available commands to interact with the TaskBot:
 | Command | Description | Example |
 |---|---|---|
 | `!add <task>` | Adds a new task to the list. | `!add Create the README` |
-| `!undone` | Lists all pending tasks. | `!undone` |
-| `!done` | Lists all completed tasks. | `!done` |
+| `!unfinished` | Lists all pending tasks. | `!unfinish` |
+| `!finished` | Lists all completed tasks. | `!finish` |
 | `!list` | Lists all tasks (🟢/🔴). | `!list` |
 | `!finish <id>` | Marks a task as completed. | `!finish 1` |
 | `!about` | Shows information about the bot. | `!about` |
